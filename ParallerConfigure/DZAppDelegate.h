@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DZAppDelegate : UIResponder <UIApplicationDelegate>
-
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) NSMutableDictionary* dictionary;
 @end

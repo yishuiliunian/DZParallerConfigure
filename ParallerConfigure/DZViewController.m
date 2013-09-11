@@ -66,15 +66,21 @@
     NSDictionary* dic = [[DZConfigureData shareInstance] configureData][self.spriteName][self.pageCountStr] ;
     self.name.text = self.spriteName;
     self.page.text = self.pageCountStr;
-    
+    //
     CGRect rect = CGRectFromString(dic[kWizParallerRect]);
     self.originX.text = [@(rect.origin.x) stringValue];
     self.originY.text = [@(rect.origin.y) stringValue];
     self.width.text = [@(rect.size.width) stringValue];
     self.height.text = [@(rect.size.height) stringValue];
     //
-    //
-    self.alpha.text = dic[kWizParallerAlpha];
+    id object = dic[kWizParallerAlpha];
+    if ([object isKindOfClass:[NSNumber class]]) {
+        self.alpha.text = [object stringValue];
+    }
+    else if ([object isKindOfClass:[NSString class]])
+    {
+        self.alpha.text = object;
+    }
 }
 
 - (void)didReceiveMemoryWarning
